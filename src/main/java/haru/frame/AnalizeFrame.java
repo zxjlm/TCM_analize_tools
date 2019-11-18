@@ -284,6 +284,7 @@ public class AnalizeFrame extends JFrame {
 		HttpURLConnectionExample poster2 = new HttpURLConnectionExample();
 		try {
 			post_response2 = poster2.sendPost(sj,global_bool.url2);
+			System.out.println(post_response2);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
