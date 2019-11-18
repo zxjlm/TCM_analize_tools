@@ -88,9 +88,9 @@ public class HttpURLConnectionExample {
         // 创建httpPost远程连接实例
         HttpPost httpPost = new HttpPost(url);
         // 配置请求参数实例
-        RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(350000)// 设置连接主机服务超时时间
-                .setConnectionRequestTimeout(350000)// 设置连接请求超时时间
-                .setSocketTimeout(600000)// 设置读取数据连接超时时间
+        RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(3500000)// 设置连接主机服务超时时间
+                .setConnectionRequestTimeout(3500000)// 设置连接请求超时时间
+                .setSocketTimeout(6000000)// 设置读取数据连接超时时间
                 .build();
         // 为httpPost实例设置配置
         httpPost.setConfig(requestConfig);
@@ -115,7 +115,16 @@ public class HttpURLConnectionExample {
             httpResponse = httpClient.execute(httpPost);
             // 从响应对象中获取响应内容
             HttpEntity entity = httpResponse.getEntity();
-            result = EntityUtils.toString(entity);
+            
+//    		try {
+//    			Thread.sleep(5000);
+//    		} catch (InterruptedException e1) {
+//    			// TODO Auto-generated catch block
+//    			e1.printStackTrace();
+//    		}
+            
+//            System.out.println(entity.getContent());
+            result = EntityUtils.toString(entity, "utf-8");
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {

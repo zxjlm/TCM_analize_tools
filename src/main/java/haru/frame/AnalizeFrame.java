@@ -106,13 +106,13 @@ public class AnalizeFrame extends JFrame {
 		probilityLabel = new JLabel("条件概率分析");
 		probilityLabel.setBounds(20,560,100,40);
 		
-		matrixLoder = new JLabel("1");
+		matrixLoder = new JLabel("");
 		matrixLoder.setBounds(150,300,100,40);
 		
-		contentLoder = new JLabel("1");
+		contentLoder = new JLabel("");
 		contentLoder.setBounds(150,400,100,40);
 		
-		probilityLoder = new JLabel("1");
+		probilityLoder = new JLabel("");
 		probilityLoder.setBounds(150,560,100,40);
 		
 		matrixLoder.setVisible(true);
@@ -230,7 +230,7 @@ public class AnalizeFrame extends JFrame {
 	
 	
 	public void fileload() throws IOException {
-		System.out.println("load file ");
+//		System.out.println("load file ");
 		
 		global_bool.laberFlag1 = false;
 		global_bool.labelFlag2 = false;
@@ -268,7 +268,7 @@ public class AnalizeFrame extends JFrame {
 		
 		
 		
-		System.out.println("post1 over");
+//		System.out.println("post1 over");
 		
 //		contentLoder.setText("Waiting");
 		
@@ -284,23 +284,24 @@ public class AnalizeFrame extends JFrame {
 		HttpURLConnectionExample poster2 = new HttpURLConnectionExample();
 		try {
 			post_response2 = poster2.sendPost(sj,global_bool.url2);
-			System.out.println(post_response2);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		
-		System.out.println(post_response2);
+//		System.out.println(post_response2);
 //		js_response2 = new JSONObject();  
 //		js_response2 = JSON.parseObject(post_response2);
 		
 		global_bool.labelFlag2 = true;
 		
+
 		
 		HttpURLConnectionExample poster3 = new HttpURLConnectionExample();
 		try {
 			post_response3 = poster3.sendPost(sj,global_bool.url3);
+			System.out.println(post_response3);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -364,7 +365,7 @@ public class AnalizeFrame extends JFrame {
 				matrixLoder.setText("success");
 				break;
 			}
-			System.out.println("111111");
+//			System.out.println("111111");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
