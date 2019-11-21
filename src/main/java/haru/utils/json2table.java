@@ -47,8 +47,8 @@ public class json2table extends JFrame{
 		
 		tb = new JTable(a,cols.toArray());
 
-		System.out.println(rows);
-		System.out.println(cols);
+//		System.out.println(rows);
+//		System.out.println(cols);
 		
 		Container con = getContentPane();
 	

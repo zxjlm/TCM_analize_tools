@@ -16,4 +16,8 @@ public class global_bool {
 	
 	public static String url4 = "http://39.108.229.166:5001/admin/get_excel_recipe_html_java";
 	public static String url5 = "http://39.108.229.166:5001/admin/get_truely_network_graph";
+	
+	
+	public static int win_width = 700;
+	public static int win_height = 500;
 }

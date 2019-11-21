@@ -71,7 +71,7 @@ public class CsvToJsonUtil {
     }
  
     public static void main(String[] args) throws Exception {
-        System.out.println(getJSONFromFile("E:\\紫津融畅\\项目测试\\SpringBoot后端试题\\后端试题\\spring-boot-demo" + "/resources/permission.csv", "\\,"));
+//        System.out.println(getJSONFromFile("E:\\紫津融畅\\项目测试\\SpringBoot后端试题\\后端试题\\spring-boot-demo" + "/resources/permission.csv", "\\,"));
     }
  
     /**
@@ -110,7 +110,7 @@ public class CsvToJsonUtil {
     
     public static String json_str(String path) throws Exception {
     	File input = new File(path);
-//        File output = new File("output.json");
+        File output = new File("output.json");
 
         CsvSchema csvSchema = CsvSchema.builder().setUseHeader(true).build();
         CsvMapper csvMapper = new CsvMapper();
@@ -121,7 +121,7 @@ public class CsvToJsonUtil {
         ObjectMapper mapper = new ObjectMapper();
 
         // Write JSON formated data to output.json file
-//        mapper.writerWithDefaultPrettyPrinter().writeValue(output, readAll);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(output, readAll);
 
         // Write JSON formated data to stdout
 //        System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(readAll));

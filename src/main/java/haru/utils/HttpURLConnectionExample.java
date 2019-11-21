@@ -122,9 +122,10 @@ public class HttpURLConnectionExample {
 //    			// TODO Auto-generated catch block
 //    			e1.printStackTrace();
 //    		}
-            
-//            System.out.println(entity.getContent());
-            result = EntityUtils.toString(entity, "utf-8");
+            System.out.println("res");
+            System.out.println(entity.getContent());
+            result = EntityUtils.toString(entity);
+            EntityUtils.consume(entity);
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
