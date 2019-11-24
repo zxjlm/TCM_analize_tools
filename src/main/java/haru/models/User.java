@@ -1,6 +1,9 @@
 package haru.models;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
 
 import haru.utils.Mysql_handler;
 
@@ -56,13 +59,24 @@ public class User {
 		return login_name;
 	}
 	
-	public int signin() {
+	public Boolean signin() {
+		List<String> rs = Mysql_handler.sql_query_name();
+		
+		if(rs.indexOf(name) != -1) {
+			return false;
+		}
+		
 		String sql = String.format("INSERT INTO user(`name`,`password`,`status`,`login_name`,`email`,`last_login_date`,`create_date`,`sex`,`age`,`tel`) "
 				+ "VALUES ('%s','%s','1','%s','%s','%s','%s','%s','%s','%s')", name,password,login_name,email,last_login_date,create_date,sex,age,tel);
-//		select * from user where status = ?
-		System.out.println(sql);
-		ResultSet res = Mysql_handler.sql_opt(sql);
-		System.out.println(res.toString());
-		return 1; 
+		Boolean res = Mysql_handler.sql_execute(sql);
+		
+		return res;
 	}
+	
+	public Boolean update_logindate() {
+		Date date = new Date();
+		String sql = "update user set last_login_date='"+String.format("%tF%n", date)+" "+String.format("%tT%n",date)+"' where login_name='"+login_name+"'";
+		return Mysql_handler.sql_execute(sql);
+	}
+	
 }

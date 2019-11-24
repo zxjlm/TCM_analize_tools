@@ -22,18 +22,18 @@ public class MainFrame extends JFrame{
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame window = new MainFrame();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MainFrame window = new MainFrame();
+//					window.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
@@ -46,7 +46,7 @@ public class MainFrame extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		User usr = new User("cy", "男", "2019-11-11", "2019-11-12", "20","zxjlm233@163.com","sheep","11111111111","123");     //TODO:init   
+//		User usr = new User("cy", "男", "2019-11-11", "2019-11-12", "20","zxjlm233@163.com","sheep","11111111111","123");     //TODO:init   
 		
 		getContentPane().setLayout(null);
 		setForeground(Color.BLACK);
@@ -65,7 +65,7 @@ public class MainFrame extends JFrame{
 		
 //		TODO:add usr info
 		JLabel usr_welcome = new JLabel("welcome "+usr.getName());
-		usr_welcome.setBounds(513,31,100,20);
+		usr_welcome.setBounds(513,31,139,20);
 		jContentPane.add(usr_welcome);
 		
 		JLabel copyright = new JLabel("© 2019 Copyright  harumonia");
@@ -74,7 +74,7 @@ public class MainFrame extends JFrame{
 		jContentPane.add(copyright);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(288, 82, 325, 225);
+		panel.setBounds(288, 82, 364, 225);
 		jContentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -83,7 +83,7 @@ public class MainFrame extends JFrame{
 		panel.add(usr_name);
 		
 		JLabel usr_name_text = new JLabel(usr.getName());
-		usr_name_text.setBounds(170, 27, 14, 16);
+		usr_name_text.setBounds(170, 27, 73, 16);
 		panel.add(usr_name_text);
 		
 		JLabel usr_sex = new JLabel("性别:");
@@ -107,7 +107,7 @@ public class MainFrame extends JFrame{
 		panel.add(usr_createdatetime);
 		
 		JLabel usr_createdatetime_text = new JLabel(usr.getCreate_date());
-		usr_createdatetime_text.setBounds(171, 145, 100, 20);
+		usr_createdatetime_text.setBounds(171, 145, 187, 20);
 		panel.add(usr_createdatetime_text);
 		
 		JLabel usr_lastlogintiome = new JLabel("上次登陆日期:");
@@ -115,7 +115,7 @@ public class MainFrame extends JFrame{
 		panel.add(usr_lastlogintiome);
 		
 		JLabel usr_lastlogintiome_text = new JLabel(usr.getLast_login_date());
-		usr_lastlogintiome_text.setBounds(171, 177, 100, 20);
+		usr_lastlogintiome_text.setBounds(171, 177, 187, 20);
 		panel.add(usr_lastlogintiome_text);
 		
 		JLabel label = new JLabel("邮箱:");
@@ -140,6 +140,25 @@ public class MainFrame extends JFrame{
 				btnana.setBounds(45, 67, 109, 29);
 				panel_1.add(btnana);
 				
+				JButton button = new JButton("返回登录界面");
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Login lo = new Login();
+						lo.setVisible(true);
+						dispose();
+					}
+				});
+				button.setBounds(45, 272, 117, 29);
+				panel_1.add(button);
+				
+				JButton button_1 = new JButton("退出系统");
+				button_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				button_1.setBounds(45, 313, 117, 29);
+				panel_1.add(button_1);
 				
 				btnana.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
