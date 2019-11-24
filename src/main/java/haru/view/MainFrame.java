@@ -1,4 +1,4 @@
-package haru.frame;
+package haru.view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -9,16 +9,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import haru.models.User;
 import haru.utils.*;
-import models.User;
 
 public class MainFrame extends JFrame{
 	private JPanel jContentPane;
 	private JButton sqlModuleButton;
 	private JButton analizeModuleButton;
 	
-
-
+	public static User usr;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -46,7 +46,7 @@ public class MainFrame extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		User usr = new User("cy", "男", "2019-11-11", "2019-11-12", "20");     //TODO:init   
+		User usr = new User("cy", "男", "2019-11-11", "2019-11-12", "20","zxjlm233@163.com","sheep","11111111111","123");     //TODO:init   
 		
 		getContentPane().setLayout(null);
 		setForeground(Color.BLACK);
@@ -54,7 +54,7 @@ public class MainFrame extends JFrame{
 		setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200,100,global_bool.win_width,global_bool.win_height);
+		setBounds(200,100,Global_bool.win_width,Global_bool.win_height);
 		
 		jContentPane = new JPanel();
 //		jContentPane.setLayout(new BorderLayout(0,0));
@@ -65,16 +65,16 @@ public class MainFrame extends JFrame{
 		
 //		TODO:add usr info
 		JLabel usr_welcome = new JLabel("welcome "+usr.getName());
-		usr_welcome.setBounds(444,31,100,20);
+		usr_welcome.setBounds(513,31,100,20);
 		jContentPane.add(usr_welcome);
 		
 		JLabel copyright = new JLabel("© 2019 Copyright  harumonia");
 //		copyright.setBounds(global_bool.win_width /2 - 100,global_bool.win_height - 10,200,20);
-		copyright.setBounds(global_bool.win_width /2 - 100,global_bool.win_height - 50,200,20);
+		copyright.setBounds(Global_bool.win_width /2 - 100,Global_bool.win_height - 50,200,20);
 		jContentPane.add(copyright);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(288, 82, 292, 190);
+		panel.setBounds(288, 82, 325, 225);
 		jContentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -103,20 +103,28 @@ public class MainFrame extends JFrame{
 		panel.add(usr_age);
 		
 		JLabel usr_createdatetime = new JLabel("注册日期:");
-		usr_createdatetime.setBounds(53, 113, 100, 20);
+		usr_createdatetime.setBounds(54, 145, 100, 20);
 		panel.add(usr_createdatetime);
 		
 		JLabel usr_createdatetime_text = new JLabel(usr.getCreate_date());
-		usr_createdatetime_text.setBounds(170, 113, 100, 20);
+		usr_createdatetime_text.setBounds(171, 145, 100, 20);
 		panel.add(usr_createdatetime_text);
 		
 		JLabel usr_lastlogintiome = new JLabel("上次登陆日期:");
-		usr_lastlogintiome.setBounds(53, 145, 100, 20);
+		usr_lastlogintiome.setBounds(54, 177, 100, 20);
 		panel.add(usr_lastlogintiome);
 		
 		JLabel usr_lastlogintiome_text = new JLabel(usr.getLast_login_date());
-		usr_lastlogintiome_text.setBounds(170, 145, 100, 20);
+		usr_lastlogintiome_text.setBounds(171, 177, 100, 20);
 		panel.add(usr_lastlogintiome_text);
+		
+		JLabel label = new JLabel("邮箱:");
+		label.setBounds(53, 113, 100, 20);
+		panel.add(label);
+		
+		JLabel lblZxjlmcom = new JLabel("zxjlm233@163.com");
+		lblZxjlmcom.setBounds(170, 113, 138, 20);
+		panel.add(lblZxjlmcom);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(38, 83, 200, 350);

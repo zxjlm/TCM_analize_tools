@@ -1,4 +1,4 @@
-package haru.frame;
+package haru.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -31,8 +31,8 @@ import com.opencsv.exceptions.CsvException;
 
 import haru.utils.CsvToJsonUtil;
 import haru.utils.HttpURLConnectionExample;
-import haru.utils.global_bool;
-import haru.utils.json2table;
+import haru.utils.Global_bool;
+import haru.utils.Json2table;
 import net.sourceforge.htmlunit.corejs.javascript.ObjArray;
 
 import javax.swing.JTextPane;
@@ -170,7 +170,7 @@ public class AnalizeFrame extends JFrame{
 		
 		resultOfprobilityButton = new JButton("条件概率分析结果");
 		resultOfprobilityButton.setBounds(400, 816, 184, 40);
-		jContentPane.add(resultOfprobilityButton);
+		jContentPane.add(resultOfprobilityButton); 
 		chartsOfProbilityButton = new JButton("条件概率分析图表");
 		chartsOfProbilityButton.setBounds(400, 855, 184, 40);
 		jContentPane.add(chartsOfProbilityButton);
@@ -210,7 +210,7 @@ public class AnalizeFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String Command="open "+global_bool.url5;
+				String Command="open "+Global_bool.url5;
 				try {
 					Process Child=Runtime.getRuntime().exec(Command);
 				} catch (IOException e1) {
@@ -236,7 +236,7 @@ public class AnalizeFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String Command="open "+global_bool.url4;
+				String Command="open "+Global_bool.url4;
 				try {
 					Process Child=Runtime.getRuntime().exec(Command);
 				} catch (IOException e1) {
@@ -363,9 +363,9 @@ public class AnalizeFrame extends JFrame{
 	public String fileload() throws IOException {
 //		System.out.println("load file ");
 		
-		global_bool.laberFlag1 = false;
-		global_bool.labelFlag2 = false;
-		global_bool.labelFlag3 = false;
+		Global_bool.laberFlag1 = false;
+		Global_bool.labelFlag2 = false;
+		Global_bool.labelFlag3 = false;
 		
 		String sj="";
 		
@@ -394,33 +394,33 @@ public class AnalizeFrame extends JFrame{
 	public void postAndGet(String sj) {
 		HttpURLConnectionExample poster1 = new HttpURLConnectionExample();
 		try {
-			post_response1 = poster1.sendPost(sj,global_bool.url1);
+			post_response1 = poster1.sendPost(sj,Global_bool.url1);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		global_bool.laberFlag1 = true;
+		Global_bool.laberFlag1 = true;
 		
 		HttpURLConnectionExample poster2 = new HttpURLConnectionExample();
 		try {
-			post_response2 = poster2.sendPost("",global_bool.url2);
+			post_response2 = poster2.sendPost("",Global_bool.url2);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		global_bool.labelFlag2 = true;
+		Global_bool.labelFlag2 = true;
 		
 		HttpURLConnectionExample poster3 = new HttpURLConnectionExample();
 		try {
-			post_response3 = poster3.sendPost("",global_bool.url3);
+			post_response3 = poster3.sendPost("",Global_bool.url3);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		global_bool.labelFlag3 = true;
+		Global_bool.labelFlag3 = true;
 	}
 	
 	protected void visable_init(Boolean flag) {
@@ -440,17 +440,17 @@ public class AnalizeFrame extends JFrame{
 	}
 	
 	protected void jump2matrix(ActionEvent e) {
-		json2table t = new json2table(post_response1,"二值分析");
+		Json2table t = new Json2table(post_response1,"二值分析");
 		t.setVisible(true);
 	}
 	
 	protected void jump2content(ActionEvent e) {
-		json2table t = new json2table(post_response2,"成分分析");
+		Json2table t = new Json2table(post_response2,"成分分析");
 		t.setVisible(true);
 	}
 	
 	protected void jump2probility(ActionEvent e) {
-		json2table t = new json2table(post_response3,"条件概率分析");
+		Json2table t = new Json2table(post_response3,"条件概率分析");
 		t.setVisible(true);
 	}
 	
@@ -503,7 +503,7 @@ public class AnalizeFrame extends JFrame{
 	public void run() {
 		String str = "Waiting " ;
 		while(true) {
-			if(global_bool.laberFlag1) {
+			if(Global_bool.laberFlag1) {
 				matrixLoder.setText("success");
 				matrixLoder.setForeground(Color.GREEN);
 				break;
@@ -535,7 +535,7 @@ public class AnalizeFrame extends JFrame{
 		public void run() {
 			String str = "Waiting " ;
 			while(true) {
-				if(global_bool.labelFlag2) {
+				if(Global_bool.labelFlag2) {
 					contentLoder.setText("success");
 					contentLoder.setForeground(Color.GREEN);
 					break;
@@ -568,7 +568,7 @@ public class AnalizeFrame extends JFrame{
 		public void run() {
 			String str = "Waiting " ;
 			while(true) {
-				if(global_bool.labelFlag3) {
+				if(Global_bool.labelFlag3) {
 					probilityLoder.setText("success");
 					probilityLoder.setForeground(Color.GREEN);
 					break;
@@ -632,35 +632,35 @@ public class AnalizeFrame extends JFrame{
 	 public void postAndGet(String sj) {
 		 HttpURLConnectionExample poster1 = new HttpURLConnectionExample();;	
 		 	try {
-				AnalizeFrame.post_response1 = poster1.sendPost(sj,global_bool.url1);
+				AnalizeFrame.post_response1 = poster1.sendPost(sj,Global_bool.url1);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			resultOf01Button.setEnabled(true);
-			global_bool.laberFlag1 = true;
+			Global_bool.laberFlag1 = true;
 			
 			HttpURLConnectionExample poster2 = new HttpURLConnectionExample();
 			try {
-				AnalizeFrame.post_response2 = poster2.sendPost("",global_bool.url2);
+				AnalizeFrame.post_response2 = poster2.sendPost("",Global_bool.url2);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			resultOfcontentButton.setEnabled(true);
 			chartsOfcontentButton.setEnabled(true);
-			global_bool.labelFlag2 = true;
+			Global_bool.labelFlag2 = true;
 			
 			HttpURLConnectionExample poster3 = new HttpURLConnectionExample();
 			try {
-				AnalizeFrame.post_response3 = poster3.sendPost("",global_bool.url3);
+				AnalizeFrame.post_response3 = poster3.sendPost("",Global_bool.url3);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			resultOfprobilityButton.setEnabled(true);
 			chartsOfProbilityButton.setEnabled(true);
-			global_bool.labelFlag3 = true;
+			Global_bool.labelFlag3 = true;
 		}
 	 
  }

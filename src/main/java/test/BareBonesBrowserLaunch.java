@@ -1,6 +1,6 @@
 package test;
 
-import haru.utils.global_bool;
+import haru.utils.Global_bool;
 
 import java.io.IOException;
 import java.lang.Runtime;
@@ -8,7 +8,7 @@ import java.lang.Runtime;
 public class BareBonesBrowserLaunch {
 	
 	public static void main(String[] args) {
-		String Command="open "+global_bool.url4;
+		String Command="open "+Global_bool.url4;
 		try {
 			Process Child=Runtime.getRuntime().exec(Command);
 		} catch (IOException e) {
