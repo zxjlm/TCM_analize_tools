@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
-public class csv_try {
+public class Csv_try {
 	
 
 	public static void main(String[] args) {

@@ -11,6 +11,10 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.RowSorter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -45,7 +49,20 @@ public class Json2table extends JFrame{
 			}
 		}
 		
-		tb = new JTable(a,cols.toArray());
+		TableModel model = new DefaultTableModel(a,cols.toArray()) {
+			public Class getColumnClass(int column) {
+				Class returnValue;
+				if ((column >= 0) && (column < getColumnCount())) {
+					returnValue = getValueAt(0, column).getClass();
+				} else {
+					returnValue = Object.class;
+				}
+				return returnValue;
+			}
+		};
+		tb = new JTable(model);
+		TableRowSorter sorter = new TableRowSorter<TableModel>(model);
+		tb.setRowSorter(sorter);
 
 //		System.out.println(rows);
 //		System.out.println(cols);

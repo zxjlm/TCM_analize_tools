@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class mysql_demo {
+public class Mysql_demo {
 	public static void main(String[] args) {
 		Connection con = null;
 		

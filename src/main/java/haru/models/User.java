@@ -76,6 +76,7 @@ public class User {
 	public Boolean update_logindate() {
 		Date date = new Date();
 		String sql = "update user set last_login_date='"+String.format("%tF%n", date)+" "+String.format("%tT%n",date)+"' where login_name='"+login_name+"'";
+		System.out.println(sql);
 		return Mysql_handler.sql_execute(sql);
 	}
 	

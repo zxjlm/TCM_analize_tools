@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.apache.bcel.generic.D2F;
 
 import haru.models.User;
 import haru.view.MainFrame;
@@ -160,12 +162,13 @@ public class Mysql_handler {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
+				Date date = new Date();
 				String name_tmp = rs.getString("login_name");
 				String pwd_tmp = rs.getString("password");
 				if(name_tmp.equals(name) && pwd_tmp.equals(pwd)) {
 					res = true;
+					MainFrame.usr = new User(rs.getString("name"), rs.getString("sex"), rs.getString("create_date"), String.format("%tF%n", date)+" "+String.format("%tT%n",date), rs.getString("age"), rs.getString("email"), rs.getString("login_name"), rs.getString("age"), "unshown");
 					MainFrame.usr.update_logindate();
-					MainFrame.usr = new User(rs.getString("name"), rs.getString("sex"), rs.getString("create_date"), rs.getString("last_login_date"), rs.getString("age"), rs.getString("email"), rs.getString("login_name"), rs.getString("age"), "unshown");
 					System.out.println(rs.getString("name"));
 					break;
 				}
