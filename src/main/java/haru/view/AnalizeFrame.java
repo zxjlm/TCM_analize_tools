@@ -319,7 +319,7 @@ public class AnalizeFrame extends JFrame{
 						
 						Object [] columnnames = {"处方名","药名"};
 						
-						Global_bool.cols = (String[]) columnnames;
+//						Global_bool.cols = (String[]) columnnames;
 						
 						Object a[][];
 						

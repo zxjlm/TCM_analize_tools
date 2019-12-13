@@ -17,6 +17,7 @@ public class User {
 	private String login_name;
 	private String tel;
 	private String password;
+	private String authority;
 	
 	public User(String name,String sex,String create_date,String login_date,String age,String email,String login_name,String tel,String password) {
 		// TODO Auto-generated constructor stub

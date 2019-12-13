@@ -36,7 +36,7 @@ public class MainFrame extends JFrame{
 	private JButton analizeModuleButton;
 	
 	public static JLabel matrix01_loader,content_loader,probility_loader,link_loader,community_loader;
-	public static JMenuItem content_table,content_chart,probility_table,probility_chart,link_table,community_table,community_chart;
+	public static JMenuItem content_table,content_chart,probility_table,probility_chart,link_table,community_table,community_chart,download;
 	public static JComboBox comboBox_comnunity_1,comboBox_comnunity,comboBox_network;
 	public static JButton btn_community,button_4,button_7;
 		
@@ -46,7 +46,7 @@ public class MainFrame extends JFrame{
 	
 	
 	/**
-	 * Launch the application.
+	 * Launch the application.               
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -87,6 +87,56 @@ public class MainFrame extends JFrame{
 		jContentPane.setLayout(null);
 		setContentPane(jContentPane);
 		
+		process_panel = new JPanel();
+		process_panel.setBounds(262, 84, 403, 225);
+		jContentPane.add(process_panel);
+		process_panel.setLayout(null);
+		
+		JLabel content_lbl = new JLabel("成分分析");
+		content_lbl.setBounds(50, 61, 61, 16);
+		process_panel.add(content_lbl);
+		
+		JLabel probility_lbl = new JLabel("条件概率分析");
+		probility_lbl.setBounds(50, 100, 86, 16);
+		process_panel.add(probility_lbl);
+		
+		JLabel link_lbl = new JLabel("关联度分析");
+		link_lbl.setBounds(50, 135, 77, 16);
+		process_panel.add(link_lbl);
+		
+		JLabel community_lbl = new JLabel("社团分析");
+		community_lbl.setBounds(50, 170, 61, 16);
+		process_panel.add(community_lbl);
+		
+		matrix01_loader = new JLabel("waiting");
+		matrix01_loader.setForeground(Color.RED);
+		matrix01_loader.setBounds(229, 20, 86, 16);
+		process_panel.add(matrix01_loader);
+		
+		content_loader = new JLabel("waiting");
+		content_loader.setForeground(Color.RED);
+		content_loader.setBounds(229, 61, 86, 16);
+		process_panel.add(content_loader);
+		
+		probility_loader = new JLabel("waiting");
+		probility_loader.setForeground(Color.RED);
+		probility_loader.setBounds(229, 100, 86, 16);
+		process_panel.add(probility_loader);
+		
+		link_loader = new JLabel("stop");
+		link_loader.setForeground(Color.BLUE);
+		link_loader.setBounds(229, 135, 86, 16);
+		process_panel.add(link_loader);
+		
+		community_loader = new JLabel("stop");
+		community_loader.setForeground(Color.BLUE);
+		community_loader.setBounds(229, 170, 86, 16);
+		process_panel.add(community_loader);
+		
+		JLabel matrixOf01 = new JLabel("二值分析");
+		matrixOf01.setBounds(50, 20, 61, 16);
+		process_panel.add(matrixOf01);
+		
 		link_panel = new JPanel();
 		link_panel.setBounds(286, 84, 351, 240);
 		jContentPane.add(link_panel);
@@ -98,7 +148,7 @@ public class MainFrame extends JFrame{
 		
 		JLabel label_5 = new JLabel("选择分析对象");
 		label_5.setBounds(34, 28, 170, 16);
-		link_panel.add(label_5);
+		link_panel.add(label_5); 
 		
 		textField_network = new JTextField();
 		textField_network.setBounds(155, 66, 130, 26);
@@ -237,56 +287,6 @@ public class MainFrame extends JFrame{
 		button_4.setBounds(45, 87, 117, 29);
 		panel_1.add(button_4);
 		
-		process_panel = new JPanel();
-		process_panel.setBounds(262, 84, 403, 225);
-		jContentPane.add(process_panel);
-		process_panel.setLayout(null);
-		
-		JLabel content_lbl = new JLabel("成分分析");
-		content_lbl.setBounds(50, 61, 61, 16);
-		process_panel.add(content_lbl);
-		
-		JLabel probility_lbl = new JLabel("条件概率分析");
-		probility_lbl.setBounds(50, 100, 86, 16);
-		process_panel.add(probility_lbl);
-		
-		JLabel link_lbl = new JLabel("关联度分析");
-		link_lbl.setBounds(50, 135, 77, 16);
-		process_panel.add(link_lbl);
-		
-		JLabel community_lbl = new JLabel("社团分析");
-		community_lbl.setBounds(50, 170, 61, 16);
-		process_panel.add(community_lbl);
-		
-		matrix01_loader = new JLabel("waiting");
-		matrix01_loader.setForeground(Color.RED);
-		matrix01_loader.setBounds(229, 20, 61, 16);
-		process_panel.add(matrix01_loader);
-		
-		content_loader = new JLabel("waiting");
-		content_loader.setForeground(Color.RED);
-		content_loader.setBounds(229, 61, 61, 16);
-		process_panel.add(content_loader);
-		
-		probility_loader = new JLabel("waiting");
-		probility_loader.setForeground(Color.RED);
-		probility_loader.setBounds(229, 100, 61, 16);
-		process_panel.add(probility_loader);
-		
-		link_loader = new JLabel("stop");
-		link_loader.setForeground(Color.BLUE);
-		link_loader.setBounds(229, 135, 61, 16);
-		process_panel.add(link_loader);
-		
-		community_loader = new JLabel("stop");
-		community_loader.setForeground(Color.BLUE);
-		community_loader.setBounds(229, 170, 61, 16);
-		process_panel.add(community_loader);
-		
-		JLabel matrixOf01 = new JLabel("二值分析");
-		matrixOf01.setBounds(50, 20, 61, 16);
-		process_panel.add(matrixOf01);
-		
 		panel = new JPanel();
 		panel.setBounds(273, 84, 364, 225);
 		jContentPane.add(panel);
@@ -349,6 +349,26 @@ public class MainFrame extends JFrame{
 
 		
 		JMenuItem open = new JMenuItem("打开");
+		open.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_init();
+				process_panel.setVisible(true);
+				jump2ana(e);
+			}
+		});
+		download = new JMenuItem("下载");
+		download.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String Command="open "+Global_bool.url_dl;
+				try {
+					Process Child=Runtime.getRuntime().exec(Command);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		download.setEnabled(false);
 	    JMenuItem quit = new JMenuItem("退出");
 	    
 	    content_table = new JMenuItem("成分分析");
@@ -420,12 +440,13 @@ public class MainFrame extends JFrame{
 	    	}
 	    });
 	    community_chart.setEnabled(false);
-	    
 		
 	    file_menu.add(open);
+	    file_menu.add(download);
 	      // 设置菜单分隔符
 	    file_menu.addSeparator();
 	    file_menu.add(quit);
+	    
 	    
 	    show_menu.add(content_table);
 	    show_menu.add(content_chart);
@@ -451,6 +472,8 @@ public class MainFrame extends JFrame{
 		
 		btnana.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panel_init();
+				process_panel.setVisible(true);
 				jump2ana(e);
 			}
 		});
@@ -573,6 +596,7 @@ class labelControl1 extends Thread{
 	 
 	 public labelControl1(JLabel matrixLoder) {
 		 this.matrixLoder = matrixLoder;
+		 matrixLoder.setForeground(Color.RED);
 	 }
 
 	@Override
@@ -606,6 +630,7 @@ class labelControl2 extends Thread{
 	 
 	 public labelControl2(JLabel contentLoder) {
 		 this.contentLoder = contentLoder;
+		 contentLoder.setForeground(Color.RED);
 	 }
 		@Override
 		public void run() {
@@ -639,6 +664,7 @@ class labelControl3 extends Thread{
 	 
 	 public labelControl3(JLabel probilityLoder) {
 		 this.probilityLoder = probilityLoder;
+		 probilityLoder.setForeground(Color.RED);
 	 }
 		@Override
 		public void run() {
@@ -647,6 +673,7 @@ class labelControl3 extends Thread{
 				if(Global_bool.labelFlag3) {
 					probilityLoder.setText("success");
 					probilityLoder.setForeground(Color.GREEN);
+					MainFrame.download.setEnabled(true);
 					break;
 				}
 				
@@ -671,6 +698,7 @@ class labelControl4 extends Thread{
 	 
 	 public labelControl4(JLabel probilityLoder) {
 		 this.probilityLoder = probilityLoder;
+		 probilityLoder.setForeground(Color.RED);
 	 }
 		@Override
 		public void run() {
@@ -703,6 +731,7 @@ class labelControl5 extends Thread{
 	 
 	 public labelControl5(JLabel probilityLoder) {
 		 this.probilityLoder = probilityLoder;
+		 probilityLoder.setForeground(Color.RED);
 	 }
 		@Override
 		public void run() {
@@ -805,19 +834,6 @@ class PostThread extends Thread{
 			probility_table.setEnabled(true);
 			Global_bool.labelFlag3 = true;
 			
-			
-
-//			
-//			
-//			HttpURLConnectionExample poster5 = new HttpURLConnectionExample();
-//			try {
-//				AnalizeFrame.post_response3 = poster5.sendPost("",Global_bool.url3);
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			resultOfprobilityButton.setEnabled(true);
-//			Global_bool.labelFlag3 = true;
 		}
 	 
 }
