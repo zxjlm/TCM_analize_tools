@@ -85,10 +85,10 @@ public class Login extends JFrame{
 		label_1.setBounds(100, 129, 61, 16);
 		getContentPane().add(label_1);
 		
-		JLabel lblNewLabel = new JLabel("某不愿透露姓名的zxj制作的登录界面啊");
+		JLabel lblNewLabel = new JLabel("中医处方基础分析系统");
 		lblNewLabel.setFont(new Font("Adobe Caslon Pro", Font.PLAIN, 15));
 		lblNewLabel.setForeground(Color.PINK);
-		lblNewLabel.setBounds(100, 34, 266, 29);
+		lblNewLabel.setBounds(146, 34, 160, 29);
 		getContentPane().add(lblNewLabel);
 		
 		passwordField = new JPasswordField();

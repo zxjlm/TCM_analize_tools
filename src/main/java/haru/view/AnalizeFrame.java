@@ -147,6 +147,10 @@ public class AnalizeFrame extends JFrame{
 		button.setBounds(594, 548, 170, 29);
 		jContentPane.add(button);		
 		
+		JButton button_1 = new JButton("返回");
+		button_1.setBounds(485, 548, 97, 29);
+		jContentPane.add(button_1);
+		
 //		matrixLabel = new JLabel("二值矩阵");
 //		matrixLabel.setBounds(124, 654, 52, 16);
 //		jContentPane.add(matrixLabel);
@@ -288,6 +292,12 @@ public class AnalizeFrame extends JFrame{
 				MainFrame.button_4.setEnabled(true);
 				MainFrame.button_7.setEnabled(true);
 				
+			}
+		});
+		
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
 			}
 		});
 		

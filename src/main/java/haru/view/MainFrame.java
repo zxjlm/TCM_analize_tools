@@ -34,6 +34,7 @@ public class MainFrame extends JFrame{
 	private JPanel jContentPane,panel,process_panel,link_panel,community_panel;
 	private JButton sqlModuleButton;
 	private JButton analizeModuleButton;
+	public static JButton btn_community_ana_start,button_2;
 	
 	public static JLabel matrix01_loader,content_loader,probility_loader,link_loader,community_loader;
 	public static JMenuItem content_table,content_chart,probility_table,probility_chart,link_table,community_table,community_chart,download;
@@ -48,18 +49,18 @@ public class MainFrame extends JFrame{
 	/**
 	 * Launch the application.               
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame window = new MainFrame();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MainFrame window = new MainFrame();
+//					window.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
@@ -72,7 +73,7 @@ public class MainFrame extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		User usr = new User("cy", "男", "2019-11-11", "2019-11-12", "20","zxjlm233@163.com","sheep","11111111111","123");     //TODO:init   
+//		User usr = new User("cy", "男", "2019-11-11", "2019-11-12", "20","zxjlm233@163.com","sheep","11111111111","123");     //TODO:init   
 		
 		getContentPane().setLayout(null);
 		setForeground(Color.BLACK);
@@ -155,7 +156,7 @@ public class MainFrame extends JFrame{
 		link_panel.add(textField_network);
 		textField_network.setColumns(10);
 		
-		JButton button_2 = new JButton("开始分析");
+		button_2 = new JButton("开始分析");
 		button_2.setBounds(90, 158, 117, 29);
 		link_panel.add(button_2);
 		
@@ -194,7 +195,7 @@ public class MainFrame extends JFrame{
 		community_panel.add(textField);
 		textField.setColumns(10);
 		
-		JButton btn_community_ana_start = new JButton("开始分析");
+		btn_community_ana_start = new JButton("开始分析");
 		btn_community_ana_start.setBounds(116, 210, 117, 29);
 		community_panel.add(btn_community_ana_start);
 		
@@ -508,6 +509,8 @@ public class MainFrame extends JFrame{
 				}
 				new PostThread_community(comboBox_comnunity.getSelectedItem().toString(),comboBox_comnunity_1.getSelectedItem().toString(),textField.getText()).start();
 				new labelControl5(community_loader).start();
+				btn_community_ana_start.setText("已开始分析");
+				btn_community_ana_start.setEnabled(false);
 			}
 		});
 		
@@ -520,13 +523,15 @@ public class MainFrame extends JFrame{
 				}
 				new PostThread_network(comboBox_network.getSelectedItem().toString(), textField_network.getText()).start();
 				new labelControl4(link_loader).start();
+				button_2.setText("已开始分析");
+				button_2.setEnabled(false);
 			}
 		});
 	}
 	
 	
 	protected void jump2sql(ActionEvent e) {
-		this.setVisible(false);
+//		this.setVisible(false);
 //		MainFrame t = new MainFrame();
 //		t.setVisible(true);
 	}
@@ -707,6 +712,8 @@ class labelControl4 extends Thread{
 				if(Global_bool.labelFlag4) {
 					probilityLoder.setText("success");
 					probilityLoder.setForeground(Color.GREEN);
+					MainFrame.btn_community_ana_start.setEnabled(true);
+					MainFrame.btn_community_ana_start.setText("开始分析");
 					break;
 				}
 				
@@ -740,6 +747,8 @@ class labelControl5 extends Thread{
 				if(Global_bool.labelFlag5) {
 					probilityLoder.setText("success");
 					probilityLoder.setForeground(Color.GREEN);
+					MainFrame.button_2.setEnabled(true);
+					MainFrame.button_2.setText("开始分析");
 					break;
 				}
 				
