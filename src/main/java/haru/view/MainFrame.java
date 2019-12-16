@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -23,9 +24,12 @@ import haru.models.User;
 import haru.utils.Global_bool;
 import haru.utils.HttpURLConnectionExample;
 import haru.utils.Json2table;
+import haru.utils.Mysql_handler;
+
 import javax.swing.JTextField;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import javax.swing.JComboBox;
@@ -531,6 +535,8 @@ public class MainFrame extends JFrame{
 	
 	
 	protected void jump2sql(ActionEvent e) {
+		Query_sql f1 = new Query_sql();
+		f1.setVisible(true);
 //		this.setVisible(false);
 //		MainFrame t = new MainFrame();
 //		t.setVisible(true);
@@ -770,6 +776,31 @@ class labelControl5 extends Thread{
 
 
 
+class Add2Sql extends Thread{
+	private String file_load_res;
+	
+	public Add2Sql(String file_load_res) {
+		// TODO Auto-generated constructor stub
+		this.file_load_res = file_load_res;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Date date=new Date();
+		JSONArray myJson = JSON.parseArray(file_load_res);
+		for (int i = 0; i < myJson.size(); i++) {
+			JSONObject dict = myJson.getJSONObject(i);
+			String name = dict.getString("处方名");
+			String con = dict.getString("组成");
+			String datetimer = String.format("%tF%n", date)+" "+String.format("%tT%n",date);
+			String usrname = MainFrame.usr.getName(); //TODO
+			String sql = String.format("INSERT INTO tb_import_presciption (presciption, constitue,createtime,uploader) VALUES ('%s', '%s','%s','%s')",name,con,datetimer,usrname);
+//			System.out.println(sql);
+			Mysql_handler.sql_execute(sql);
+		}
+	}
+}
 
 
 class PostThread extends Thread{

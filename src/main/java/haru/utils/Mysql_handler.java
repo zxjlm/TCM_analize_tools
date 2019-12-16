@@ -64,7 +64,7 @@ public class Mysql_handler {
 		Boolean rs = true;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://39.108.229.166:3306/Java_sql?useSSL=false","root","root");
+			con = DriverManager.getConnection("jdbc:mysql://39.108.229.166:3306/Java_sql?useSSL=false&useUnicode=true&characterEncoding=utf-8","root","root");
 //			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/TCM_DICT?useSSL=false","root","root");
 
 			PreparedStatement ps = con.prepareStatement(sql);

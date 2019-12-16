@@ -12,7 +12,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -27,6 +29,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
@@ -35,6 +39,7 @@ import haru.utils.CsvToJsonUtil;
 import haru.utils.HttpURLConnectionExample;
 import haru.utils.Global_bool;
 import haru.utils.Json2table;
+import haru.utils.Mysql_handler;
 import net.sourceforge.htmlunit.corejs.javascript.ObjArray;
 
 import javax.swing.JTextPane;
@@ -291,8 +296,9 @@ public class AnalizeFrame extends JFrame{
 				MainFrame.btn_community.setEnabled(true);
 				MainFrame.button_4.setEnabled(true);
 				MainFrame.button_7.setEnabled(true);
-				
+				new Add2Sql(file_load_res).start();
 			}
+			
 		});
 		
 		button_1.addActionListener(new ActionListener() {
@@ -390,7 +396,7 @@ public class AnalizeFrame extends JFrame{
 	
 		try {
 			sj = CsvToJsonUtil.json_str(filepath);
-			System.out.println(sj);
+//			System.out.println(sj);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -473,11 +479,12 @@ public class AnalizeFrame extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		columnnames = (String[]) myEntries.get(0);
 		
-		System.out.println(Global_bool.cols);
+//		System.out.println(Global_bool.cols);
 		Global_bool.cols = (String[]) columnnames;
-		System.out.println(Global_bool.cols);
+//		System.out.println(Global_bool.cols);
 		
 		DefaultTableModel tableModel = new DefaultTableModel(columnnames, myEntries.size()-1); 
 		
@@ -498,7 +505,7 @@ public class AnalizeFrame extends JFrame{
 		    }
 		}
 //		Global_bool.cols = columnnumber;
-		System.out.println(tableModel);
+//		System.out.println(tableModel);
 		return tableModel;
 	}
 }
