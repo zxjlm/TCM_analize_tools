@@ -1,5 +1,9 @@
 package haru.utils;
 
+import java.util.List;
+
+import com.alibaba.fastjson.JSONObject;
+
 public class Global_bool {
 	public static boolean laberFlag1,labelFlag2,labelFlag3,labelFlag4,labelFlag5;
 //	public static String url1 = "http://127.0.0.1:5000/admin/api/java_homework_01_matrix";
@@ -40,4 +44,6 @@ public class Global_bool {
 		labelFlag4 = false;
 		labelFlag5 = false;
 	}
+	
+	public static JSONObject myJson;
 }
