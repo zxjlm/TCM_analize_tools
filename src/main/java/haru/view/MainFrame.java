@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
@@ -349,8 +350,8 @@ public class MainFrame extends JFrame{
 		//加入菜单
 		JMenuBar menuBar = new JMenuBar();
 		JMenu file_menu = new JMenu("文件(F)");
-		JMenu edit_menu = new JMenu("编辑(E)");
 		JMenu show_menu = new JMenu("分析结果(E)");
+		JMenu help_menu = new JMenu("帮助(H)");
 
 		
 		JMenuItem open = new JMenuItem("打开");
@@ -445,6 +446,46 @@ public class MainFrame extends JFrame{
 	    	}
 	    });
 	    community_chart.setEnabled(false);
+	    
+	    JMenuItem help_about = new JMenuItem("关于");
+	    help_about.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JOptionPane.showMessageDialog(null,"中医处方分析平台v3.0","About",JOptionPane.QUESTION_MESSAGE);
+			}
+		});
+	    JMenuItem help_help = new JMenuItem("帮助");
+	    help_help.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String url = "open https://app.yinxiang.com/fx/8ff4d435-e060-4ecf-acaa-9fb0ebf4a844";
+				try {
+					Runtime.getRuntime().exec(url);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+	    JMenuItem help_star = new JMenuItem("Star");
+	    help_star.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String url = "open https://github.com/zxjlm/TCM_analize_tools";
+				try {
+					Runtime.getRuntime().exec(url);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 	    file_menu.add(open);
 	    file_menu.add(download);
@@ -462,8 +503,14 @@ public class MainFrame extends JFrame{
 	    show_menu.add(community_chart);
 	    
 	    menuBar.add(file_menu);
-	    menuBar.add(edit_menu);
 	    menuBar.add(show_menu);
+	    menuBar.add(help_menu);
+	    
+	    help_menu.add(help_about);
+	    help_menu.addSeparator();
+	    help_menu.add(help_help);
+	    help_menu.addSeparator();
+	    help_menu.add(help_star);
 	    
 	    
 		setJMenuBar(menuBar);
