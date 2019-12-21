@@ -53,7 +53,7 @@ public class Community_res extends JFrame{
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		
-		textArea.setText(json2str_tt(AnalizeFrame.post_response5));
+		textArea.setText(json2str_tt(DataImport.post_response5));
 //		textArea.setText(json2str_tt("111"));
 		getContentPane().add(textArea, "name_439811278586611");
 	}

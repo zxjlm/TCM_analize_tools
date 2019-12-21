@@ -1,4 +1,4 @@
-package haru.utils;
+package haru.viewmodel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

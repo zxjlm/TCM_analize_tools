@@ -1,4 +1,4 @@
-package haru.utils;
+package haru.viewmodel;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;

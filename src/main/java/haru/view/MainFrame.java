@@ -22,10 +22,10 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 import haru.models.User;
-import haru.utils.Global_bool;
-import haru.utils.HttpURLConnectionExample;
-import haru.utils.Json2table;
-import haru.utils.Mysql_handler;
+import haru.viewmodel.Global_bool;
+import haru.viewmodel.HttpURLConnectionExample;
+import haru.viewmodel.Json2table;
+import haru.viewmodel.Mysql_handler;
 
 import javax.swing.JTextField;
 
@@ -486,6 +486,21 @@ public class MainFrame extends JFrame{
 				}
 			}
 		});
+	    
+	    JMenuItem help_update = new JMenuItem("更新");
+	    help_update.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				try {
+					Runtime.getRuntime().exec("git pull");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 	    file_menu.add(open);
 	    file_menu.add(download);
@@ -507,6 +522,7 @@ public class MainFrame extends JFrame{
 	    menuBar.add(help_menu);
 	    
 	    help_menu.add(help_about);
+	    help_menu.add(help_update);
 	    help_menu.addSeparator();
 	    help_menu.add(help_help);
 	    help_menu.addSeparator();
@@ -591,13 +607,13 @@ public class MainFrame extends JFrame{
 	
 	protected void jump2ana(ActionEvent e) {
 //		this.setVisible(false);
-		AnalizeFrame t = new AnalizeFrame();
+		DataImport t = new DataImport();
 		t.setVisible(true);
 	}
 	
 	
 	protected void jump2content(ActionEvent e) {
-		Json2table t = new Json2table(AnalizeFrame.post_response2,"成分分析");
+		Json2table t = new Json2table(DataImport.post_response2,"成分分析");
 		t.setVisible(true);
 	}
 	
@@ -607,12 +623,12 @@ public class MainFrame extends JFrame{
 	}
 	
 	protected void jump2probility(ActionEvent e) {
-		Json2table t = new Json2table(AnalizeFrame.post_response3,"条件概率分析");
+		Json2table t = new Json2table(DataImport.post_response3,"条件概率分析");
 		t.setVisible(true);
 	}
 	
 	protected void jump2network(ActionEvent e) {
-		Network_frame t = new Network_frame();
+		Relation t = new Relation();
 		t.setVisible(true);
 	}
 	
@@ -889,7 +905,7 @@ class PostThread extends Thread{
 	 public void postAndGet(String sj) {
 		 HttpURLConnectionExample poster1 = new HttpURLConnectionExample();;	
 		 	try {
-				AnalizeFrame.post_response1 = poster1.sendPost(sj,Global_bool.url1);
+				DataImport.post_response1 = poster1.sendPost(sj,Global_bool.url1);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -899,7 +915,7 @@ class PostThread extends Thread{
 			
 			HttpURLConnectionExample poster2 = new HttpURLConnectionExample();
 			try {
-				AnalizeFrame.post_response2 = poster2.sendPost("",Global_bool.url2);
+				DataImport.post_response2 = poster2.sendPost("",Global_bool.url2);
 				System.out.println("content over");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -911,7 +927,7 @@ class PostThread extends Thread{
 			
 			HttpURLConnectionExample poster3 = new HttpURLConnectionExample();
 			try {
-				AnalizeFrame.post_response3 = poster3.sendPost("",Global_bool.url3);
+				DataImport.post_response3 = poster3.sendPost("",Global_bool.url3);
 				System.out.println("probility over");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -945,7 +961,7 @@ class PostThread_community extends Thread{
 	public void postAndGet() {
 		HttpURLConnectionExample poster5 = new HttpURLConnectionExample();
 		try {
-			AnalizeFrame.post_response5 = poster5.sendPost("",Global_bool.url7+a+"/"+b+"/"+c);
+			DataImport.post_response5 = poster5.sendPost("",Global_bool.url7+a+"/"+b+"/"+c);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1000,7 +1016,7 @@ class PostThread_network extends Thread{
 		HttpURLConnectionExample poster4 = new HttpURLConnectionExample();
 		try {
 			System.out.println(Global_bool.url6+a+"/"+c);
-			AnalizeFrame.post_response4 = poster4.sendPost("",Global_bool.url6+a+"/"+c);
+			DataImport.post_response4 = poster4.sendPost("",Global_bool.url6+a+"/"+c);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

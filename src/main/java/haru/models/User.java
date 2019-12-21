@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-import haru.utils.Mysql_handler;
+import haru.viewmodel.Mysql_handler;
 
 public class User {
 	private String name;

@@ -1,4 +1,4 @@
-package haru.utils;
+package haru.viewmodel;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;

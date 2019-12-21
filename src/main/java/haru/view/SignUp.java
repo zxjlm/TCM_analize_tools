@@ -14,7 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import haru.models.User;
-import haru.utils.GFG;
+import haru.viewmodel.GFG;
 
 public class SignUp extends JFrame{
 

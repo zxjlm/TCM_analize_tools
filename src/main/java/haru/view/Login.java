@@ -9,8 +9,8 @@ import org.apache.commons.lang3.Validate;
 
 import com.mysql.cj.x.protobuf.MysqlxNotice.Frame;
 
-import haru.utils.GFG;
-import haru.utils.Mysql_handler;
+import haru.viewmodel.GFG;
+import haru.viewmodel.Mysql_handler;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

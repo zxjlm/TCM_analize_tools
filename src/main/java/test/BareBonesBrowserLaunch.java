@@ -1,9 +1,9 @@
 package test;
 
-import haru.utils.Global_bool;
-
 import java.io.IOException;
 import java.lang.Runtime;
+
+import haru.viewmodel.Global_bool;
 
 public class BareBonesBrowserLaunch {
 	

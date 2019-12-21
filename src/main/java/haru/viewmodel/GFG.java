@@ -1,4 +1,4 @@
-package haru.utils;
+package haru.viewmodel;
 
 import java.math.BigInteger; 
 import java.security.MessageDigest; 

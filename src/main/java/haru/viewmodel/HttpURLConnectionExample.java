@@ -1,4 +1,4 @@
-package haru.utils;
+package haru.viewmodel;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

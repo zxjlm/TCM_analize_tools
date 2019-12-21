@@ -35,11 +35,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
-import haru.utils.CsvToJsonUtil;
-import haru.utils.HttpURLConnectionExample;
-import haru.utils.Global_bool;
-import haru.utils.Json2table;
-import haru.utils.Mysql_handler;
+import haru.viewmodel.CsvToJsonUtil;
+import haru.viewmodel.Global_bool;
+import haru.viewmodel.HttpURLConnectionExample;
+import haru.viewmodel.Json2table;
+import haru.viewmodel.Mysql_handler;
 import net.sourceforge.htmlunit.corejs.javascript.ObjArray;
 
 import javax.swing.JTextPane;
@@ -54,7 +54,7 @@ import javax.swing.DropMode;
 import javax.swing.JTextArea;
 import javax.swing.JFormattedTextField;
 
-public class AnalizeFrame extends JFrame{
+public class DataImport extends JFrame{
 	private JPanel jContentPane;
 //	private JButton resultOfcontentButton;
 //	private JButton chartsOfcontentButton;
@@ -94,7 +94,7 @@ public class AnalizeFrame extends JFrame{
 	/**
 	 * Create the application.
 	 */
-	public AnalizeFrame() {
+	public DataImport() {
 		initialize();
 	}
 

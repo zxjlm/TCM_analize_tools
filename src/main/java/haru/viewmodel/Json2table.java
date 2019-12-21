@@ -1,4 +1,4 @@
-package haru.utils;
+package haru.viewmodel;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
