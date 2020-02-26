@@ -12,22 +12,22 @@ public class Global_bool {
 //	
 //	public static String url4 = "http://127.0.0.1:5000/admin/get_excel_recipe_html_java";
 //	public static String url5 = "http://127.0.0.1:5000/admin/get_truely_network_graph";
+//	39.108.229.166
+	
+	public static String url1 = "http://127.0.0.1:5000/admin/api/java_homework_01_matrix";
+	public static String url2 = "http://127.0.0.1:5000/admin/api/java_homework_content";
+	public static String url3 = "http://127.0.0.1:5000/admin/api/java_homework_pro";
+	
+	public static String url4 = "http://127.0.0.1:5000/admin/get_excel_recipe_html_java";
+	public static String url5 = "http://127.0.0.1:5000/admin/get_truely_network_graph";
+	
+	public static String url6 = "http://127.0.0.1:5000/admin/network_from_tt/";
+	public static String url7 = "http://127.0.0.1:5000/admin/community_from_tt/";
+	
+	public static String url8 = "http://127.0.0.1:5000/admin/community_from_tt_show_in_web";
 	
 	
-	public static String url1 = "http://39.108.229.166:5000/admin/api/java_homework_01_matrix";
-	public static String url2 = "http://39.108.229.166:5000/admin/api/java_homework_content";
-	public static String url3 = "http://39.108.229.166:5000/admin/api/java_homework_pro";
-	
-	public static String url4 = "http://39.108.229.166:5000/admin/get_excel_recipe_html_java";
-	public static String url5 = "http://39.108.229.166:5000/admin/get_truely_network_graph";
-	
-	public static String url6 = "http://39.108.229.166:5000/admin/network_from_tt/";
-	public static String url7 = "http://39.108.229.166:5000/admin/community_from_tt/";
-	
-	public static String url8 = "http://39.108.229.166:5000/admin/community_from_tt_show_in_web";
-	
-	
-	public static String url_dl = "http://39.108.229.166:5000/admin/api/v1.0/java/download";
+	public static String url_dl = "http://127.0.0.1:5000/admin/api/v1.0/java/download";
 	
 	
 	public static int win_width = 700;

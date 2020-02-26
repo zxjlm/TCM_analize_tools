@@ -220,7 +220,7 @@ public class MainFrame extends JFrame{
 		
 		JLabel copyright = new JLabel("© 2019 Copyright  harumonia");
 //		copyright.setBounds(global_bool.win_width /2 - 100,global_bool.win_height - 10,200,20);
-		copyright.setBounds(Global_bool.win_width /2 - 100,Global_bool.win_height - 50,200,20);
+		copyright.setBounds(236,445,200,20);
 		jContentPane.add(copyright);
 		
 		JPanel panel_1 = new JPanel();
